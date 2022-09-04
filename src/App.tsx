@@ -1,10 +1,13 @@
-import { TodoList } from './components/'
+import { RecoilRoot } from 'recoil'
+import { Counter } from './components/'
 
 function App() {
   return (
-    <div className='h-screen w-screen flex justify-center items-center'>
-      <TodoList name={"my name"} />
-    </div>
+    <RecoilRoot>
+      <div className='h-screen w-screen flex justify-center items-center'>
+        <Counter />
+      </div>
+    </RecoilRoot>
   )
 }
 
