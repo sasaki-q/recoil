@@ -1,5 +1,5 @@
 import { RecoilRoot } from 'recoil'
-import { Counter } from './components/'
+import { Counter } from '@/components/'
 
 function App() {
   return (
