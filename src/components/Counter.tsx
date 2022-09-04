@@ -1,12 +1,19 @@
 import { FunctionComponent } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { counterLabelState, counterState } from "@/states/counter";
+import { 
+    counterState,
+    counterLabelState, 
+    counterRecoilAction 
+} from "@/states/counter";
 
 export const Counter: FunctionComponent = () => {
-    const [_, setCounter ] = useRecoilState(counterState)
+    const [counter, setCounter] = useRecoilState(counterState)
     const label = useRecoilValue(counterLabelState)
 
-    const handler = () => setCounter((e) => e = e + 1)
+    const handler = () => counterRecoilAction(
+        counter > 2 ? "decrement" : "increment",
+        setCounter,
+    )
 
     return (
         <div className="h-screen w-screen flex justify-center items-center">
