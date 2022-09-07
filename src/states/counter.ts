@@ -20,11 +20,10 @@ export const counterRecoilAction = (
     action: Action,
     updater: SetterOrUpdater<number>,
 ) => {
-    switch(action) {
-        case "increment":
-            return updater((e) => e = e + 1)
-
-        case "decrement":
-            return updater((e) => e = e - 1)
+    const options: {[key in Action]: () => void} = {
+        "increment": () => updater((e) => e = e + 1),
+        "decrement": () => updater((e) => e = e - 1),
     }
+    
+    return options[action]()
 }
